@@ -75,7 +75,7 @@ h1{
             <div class="box"> <button value="3"></button></div>
          </div>
          <div id="announcer">
-          <h2 id="anounce"> Play Well</h2>
+          <h2 id="anounce"></h2>
           <button>RESTART</button>
          </div>
         </div>
@@ -124,6 +124,9 @@ h1{
                     announceWinner(boxes[a].innerHTML);
                     return;
                 }
+                else if(counter>9){
+                  gamed.innerHTML = "It's a draw!";
+                }
             }
         }
         
@@ -132,16 +135,11 @@ h1{
            check ++;
         }
         
-        function checkDraw() {
-            if (counter > 9) {
-                gamed.innerHTML = "It's a draw!";
-                check ++;
-               
-            }
-        }
+        
         let rest = document.querySelector(`#announcer button`);
         rest.addEventListener('click', ()=>{
           counter= 1;
+          gamed.innerHTML = "";
           check = 0;
           boxes.forEach ((buttons)  => {
             buttons.innerHTML = "";
